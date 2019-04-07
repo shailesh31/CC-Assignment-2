@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Upload Anagram</title>
+</head>
+
+<body>
+<div class="topnav">
+  <br>
+  <a href="/"><b>HOMEPAGE</b></a>
+</br>
+<br>  <a href="/addanagram"><b>Add Anagram</b></a></br>
+  <br><a href="/upload"><b>UPLOAD TXT</b></a></br>
+  <div class="topnav-right">
+    <br><a href="{{ url }}"><b>LOGOUT</b></a></br>
+  </div>
+</div>
+<div class="content">
+    <table>
+        <form method="post" action="/upload">
+            <tr>
+                <td>
+				<input type="file" id="file" name="file"/>
+				<label for="file" class="btn-1">Select file</label>
+                </td>
+
+            </tr>
+			<tr>
+				<td class="button_row">
+                    <input type="submit" class="upload-button" name="button" value="Upload"/>
+                </td>
+			</tr>
+        </form>
+    </table>
+
+</div>
+</body>
+
+</html>

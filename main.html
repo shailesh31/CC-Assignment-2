@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>ANAGRAM</title>
+</head>
+
+<body>
+<div class="topnav">
+  <a href="/"><b>HOME</b></a>
+  <br>
+  <a href="/addanagram"><b>Add Anagram</b></a>
+</br>
+  <a href="/upload"><b>UPLOAD TXT</b></a>
+  <br>
+  <div class="topnav-right">
+  </br>
+    <a align="right" href="{{ url }}"><b>LOGOUT</b></a>
+  </div>
+</div>
+<p style="font-size:120%;">Welcome:<b> {{ user.email() }}</b></p>
+<br>
+<div class="content">
+    <table>
+
+        <form method="get" action="/search">
+            <tr>
+                <td>
+                    <input type="text" class="text_input" name="value"
+                           placeholder="Look for an  anagram" pattern="[a-z]{2,30}" required>
+                </td>
+                <td id="button_row">
+                    <input type="submit" class="button" name="button" value="Search">
+                </td>
+            </tr>
+        </form>
+
+    </table>
+
+</div>
+</body>
+
+</html>

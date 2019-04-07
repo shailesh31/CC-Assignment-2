@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Search Results - Anagram Engine</title>
+</head>
+
+<body>
+<div class="header">
+	<div class="left-box">
+	<p><h1><div align="center" class="title">Anagram Engine</div></h1> </p>
+	</div>
+	<div class="right-box">
+	<br>	<div class="logout-upper-text">Welcome:  <b>{{ user.email() }}</b></div></br>
+  <br>	<div class="logout-button"><a href="{{ url }}">Logout</a></div></br>
+	</div>
+</div>
+<div class="menu">
+	<ul>
+    <br>
+		<li><a href="/">Home</a></li>
+  </br>
+  <br>
+		<li><a href="/add">Add New</a></li>
+  </br>
+  <br>
+		<li><a href="/upload">Upload Dictionary</a></li>
+  </br>
+	</ul>
+</div>
+<div class="main-container">
+
+            <table class="search">
+                <tr>
+                    <th>
+                        These are the sub anagrams of "{{ value }}":
+                    </th>
+                </tr>
+                {% for anagram in anagrams %}
+					{% if value == anagram.sorted_word %}
+						{% for subword in anagram.sub_anagram %}
+                                {% if loop.index == anagram.sub_anagram | length %}
+								<tr>
+									<td class="searchTable">{{ subword }}</td>
+                                {% else %}
+									<td class="searchTable"> {{ subword }}</td>
+								</tr>
+								{% endif %}
+						{% endfor %}
+					{% endif %}
+                {% endfor %}
+            </table>
+
+</div>
+</body>
+
+</html>

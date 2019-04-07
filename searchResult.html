@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Search Anagram</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <br><a href="/"><b>HOMEPAGE</b></a></br>
+    <br><a href="/addanagram"><b>Add Anagram</b></a></br>
+    <div class="topnav-right">
+    <br>  <a href="{{ url }}"><b>LOGOUT</b></a></br>
+    </div>
+  </div>
+  <br>
+  <div class="header">
+      <div style="float:left; width:70%; text-align: left;">
+          The Search Result are:-
+      </div>
+      <div style="float:right; width:20%">
+          <a href="/">
+              <div class="button_element">
+                  Back
+              </div>
+          </a>
+      </div>
+  </div>
+<div class="content">
+  <table>
+    <tr>
+      <th>
+        These are the anagrams of "{{ input_text }}":
+      </th>
+    </tr>
+    {% for anagram in anagrams %}
+    {% if value == anagram.sorted_word %}
+    {% for word in anagram.words %}
+    {% if loop.index == anagram.words | length %}
+    <tr>
+      <td class="anagram_table_data">{{ word }}</td>
+      {% else %}
+      <td class="anagram_table_data"> {{ word }}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  </table>
+</div>
+</body>
+
+</html>

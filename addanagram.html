@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Add Anagram</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <br>
+    <a href="/"><b>HOMEPAGE</b></a>
+  </br>
+  <br>
+    <a href="/addanagram"><b>Add Anagram</b></a>
+  </br>
+  <br>
+    <a href="/upload"><b>UPLOAD TXT</b></a>
+  </br>
+    <div class="topnav-right">
+      <br>
+      <a href="{{ url }}"><b>LOGOUT</b></a>
+      </br
+    </div>
+  </div>
+  <p style="font-size:120%;">You are logged in as:<b> {{ user.email() }}</b></p>
+  <br>
+<div class="content">
+    <table>
+        <form method="post" action="/addanagram">
+            <tr>
+                <td>
+                    <input type="text" class="text_input" name="value" placeholder="Type a new word"/>
+                </td>
+                <td id="button_row">
+                    <input type="submit" class="button" name="button" value="Add"/>
+                </td>
+            </tr>
+        </form>
+    </table>
+    <br>
+    {% if anagrams %}
+        <table>
+            <tr>
+                <th colspan="3">
+                    Anagrams are:
+                </th>
+            </tr>
+            {% for anagram in anagrams %}
+                <tr>
+                        <td class="anagram_table_data_sortedWord">
+                            <b>{{ anagram.sorted_word }}</b>
+                        </td>
+                        <td class="anagram_table_data">
+                            {% for word in anagram.words %}
+                                {% if loop.index == anagram.words | length %}
+                                    {{ word }}
+                                {% else %}
+                                    {{ word }},
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td class="button_delete">
+                            <a href="/subanagram?name={{ anagram.sorted_word }}" >SubAnagram</a>
+                        </td>
+                </tr>
+            {% endfor %}
+            <tr></tr>
+        </table>
+    {% endif %}
+</div>
+</body>
+
+</html>
